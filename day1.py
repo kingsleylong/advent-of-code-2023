@@ -24,9 +24,40 @@
 
 # To begin, get your puzzle input.
 
+print(list(range(len("line") - 1, -1, -1)))
+
+def findCalibrationNumber(line):
+    nums = []
+    for char in line:
+        # https://www.w3schools.com/python/ref_string_isnumeric.asp#:~:text=The%20isnumeric()%20method%20returns,%2C%20and%20the%20%2D%20and%20the%20.
+        if char.isnumeric():
+            # https://www.freecodecamp.org/news/python-convert-string-to-int-how-to-cast-a-string-in-python/#:~:text=To%20convert%2C%20or%20cast%2C%20a,int(%22str%22)%20.
+            nums.append(int(char))
+            break
+
+    # https://www.w3schools.com/python/python_for_loops.asp
+    for i in range(len(line) - 1, -1, -1):
+        print("i=", i)
+        char = line[i]
+        if char.isnumeric():
+            nums.append(int(char))
+            break
+
+    return nums
+
+# https://www.geeksforgeeks.org/read-a-file-line-by-line-in-python/
 file = open('inputs/day1.txt', 'r')
 
 lines = file.readlines()
 print("rows in file:", len(lines))
+
+result = 0
+for line in lines:
+    print(" line is:", line)
+    nums = findCalibrationNumber(line)
+    print(" number in line {} is {}".format(line, nums))
+    result += nums[0]*10 + nums[1]
+
+print("The sum of all of the calibration values is:", result)
 
 file.close
