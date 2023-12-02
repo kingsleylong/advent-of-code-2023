@@ -37,7 +37,7 @@ def findCalibrationNumber(line):
 
     # https://www.w3schools.com/python/python_for_loops.asp
     for i in range(len(line) - 1, -1, -1):
-        print("i=", i)
+        # print("i=", i)
         char = line[i]
         if char.isnumeric():
             nums.append(int(char))
@@ -61,3 +61,99 @@ for line in lines:
 print("The sum of all of the calibration values is:", result)
 
 file.close
+
+# Your puzzle answer was 54877.
+
+# The first half of this puzzle is complete! It provides one gold star: *
+
+# --- Part Two ---
+
+# Your calculation isn't quite right. It looks like some of the digits are actually spelled out with letters: one, two, three, four, five, six, seven, eight, and nine also count as valid "digits".
+
+# Equipped with this new information, you now need to find the real first and last digit on each line. For example:
+
+# two1nine
+# eightwothree
+# abcone2threexyz
+# xtwone3four
+# 4nineeightseven2
+# zoneight234
+# 7pqrstsixteen
+# In this example, the calibration values are 29, 83, 13, 24, 42, 14, and 76. Adding these together produces 281.
+
+# What is the sum of all of the calibration values?
+
+letterDigits = {'one':'1', 
+                'two':'2', 
+                'three':'3',
+                'four':'4',
+                'five':'5',
+                'six':'6',
+                'seven':'7',
+                'eight':'8',
+                'nine':'9'}
+
+for k, v in letterDigits.items():
+    print("k={}, v={}".format(k, v))
+
+
+def replaceLetterDigitsWithNumber(line):
+    new_line = line
+    print("find first letter digit")
+    firstIdx, firstLetter = len(line), None
+    # https://www.w3schools.com/python/python_dictionaries_loop.asp
+    for k, v in letterDigits.items():
+        # print("k={}, v={}".format(k, v))
+        idx = line.find(k)
+        # print("idx:", idx)
+        if idx < 0:
+            continue
+        elif idx < firstIdx:
+            firstIdx = idx
+            firstLetter = k
+            print("firstIdx={}, firstLetter={}".format(firstIdx, firstLetter))
+    
+    lastIdx, lastletter = 0, None
+    # https://www.w3schools.com/python/python_dictionaries_loop.asp
+    for k, v in letterDigits.items():
+        idx = line.rfind(k)
+        if idx < 0:
+            continue
+        elif idx > lastIdx:
+            lastIdx = idx
+            lastletter = k
+            print("lastIdx={}, lastLetter={}".format(lastIdx, lastletter))
+
+    if firstLetter is not None:
+        # https://www.geeksforgeeks.org/python-string-replace/
+        new_line = new_line.replace(firstLetter, "{}{}".format(letterDigits[firstLetter], firstLetter))
+
+    if lastletter is not None:
+        # https://www.geeksforgeeks.org/python-string-replace/
+        new_line = new_line.replace(lastletter, "{}{}".format(letterDigits[lastletter], lastletter))
+    
+    return new_line
+
+
+file = open('inputs/day1.txt', 'r')
+
+lines = file.readlines()
+print("rows in file:", len(lines))
+
+result = 0
+for line in lines:
+    print("--------------------")
+    print(" line is:", line)
+    new_line = replaceLetterDigitsWithNumber(line)
+    print(" replace letter digits, new line=", new_line)
+    nums = findCalibrationNumber(new_line)
+    print(" number in new_line is {}".format(nums))
+    result += nums[0]*10 + nums[1]
+
+
+print("The sum of all of the calibration values is:", result)
+
+file.close
+
+# The sum of all of the calibration values is: 54100
+# That's the right answer! You are one gold star closer to restoring snow operations.
