@@ -19,7 +19,7 @@ import java.util.Scanner;
 @Data
 public class FileParser {
 
-    public static final String DAY2_INPUT_FILE_NAME = "input 2.txt";
+    public static final String DAY2_INPUT_FILE_NAME = "day2.txt";
 
     public List<Game> parseFile() {
         List<Game> games = new ArrayList<>();
