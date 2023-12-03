@@ -1,4 +1,4 @@
-package kingsley.aoc2023.day2;
+package kingsley.aoc2023.day2.application;
 
 import kingsley.aoc2023.day2.domain.Game;
 import kingsley.aoc2023.day2.infrastructure.FileParser;
@@ -15,6 +15,6 @@ public class Part2 {
         Optional<Long> sumOfPower = games.stream()
                 .map(game -> game.findMinimumBag().calculatePower())
                 .reduce(Long::sum);
-        System.out.format("The sum of the IDs of those games is: %d", sumOfPower.get());
+        System.out.format("The sum of the power of these sets: %d", sumOfPower.orElse(0L));
     }
 }

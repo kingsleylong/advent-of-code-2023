@@ -13,14 +13,17 @@ import java.util.Objects;
 import java.util.Scanner;
 
 /**
- * Scanner vs BufferedReader: https://www.geeksforgeeks.org/difference-between-scanner-and-bufferreader-class-in-java/
+ * <a href="https://www.geeksforgeeks.org/difference-between-scanner-and-bufferreader-class-in-java/">
+ *     Scanner vs BufferedReader</a>
  */
 @Data
 public class FileParser {
 
+    public static final String DAY2_INPUT_FILE_NAME = "input 2.txt";
+
     public List<Game> parseFile() {
         List<Game> games = new ArrayList<>();
-        URL fileUrl = Objects.requireNonNull(getClass().getClassLoader().getResource("day2.txt"));
+        URL fileUrl = Objects.requireNonNull(getClass().getClassLoader().getResource(DAY2_INPUT_FILE_NAME));
         try (InputStream inputStream = fileUrl.openStream();
              Scanner scanner = new Scanner(inputStream)) {
             while (scanner.hasNextLine()) {

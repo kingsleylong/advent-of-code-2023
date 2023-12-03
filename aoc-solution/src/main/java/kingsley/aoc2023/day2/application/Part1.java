@@ -1,4 +1,4 @@
-package kingsley.aoc2023.day2;
+package kingsley.aoc2023.day2.application;
 
 import kingsley.aoc2023.day2.domain.Bag;
 import kingsley.aoc2023.day2.domain.Game;
@@ -10,9 +10,9 @@ import java.util.Optional;
 import java.util.stream.Stream;
 
 /**
- * Cube Conundrum
+ * Cube Conundrum Part 1
  */
-public class App {
+public class Part1 {
     public static void main(String[] args) {
         Bag bag = Bag.builder().blues(14).greens(13).reds(12).build();
         List<Game> games = new FileParser().parseFile();

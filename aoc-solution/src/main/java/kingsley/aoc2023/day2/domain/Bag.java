@@ -4,7 +4,7 @@ import lombok.Data;
 import lombok.experimental.SuperBuilder;
 
 /**
- * A bag holds
+ * A bag holds some cubes which are either red, green, or blue.
  */
 @Data
 @SuperBuilder
@@ -14,7 +14,12 @@ public class Bag {
     protected int greens;
     protected int reds;
 
+    /**
+     * The power of a bag is equal to the numbers of red, green, and blue cubes multiplied together.
+     *
+     * @return the power of the bag
+     */
     public long calculatePower() {
-        return blues * greens * reds;
+        return (long) blues * greens * reds;
     }
 }

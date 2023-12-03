@@ -1,17 +1,13 @@
 package kingsley.aoc2023.day2.domain;
 
-import lombok.*;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
-@Data
+@Getter
 @SuperBuilder
+@EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
 public class Draw extends Bag {
-//    @Builder
-//    public Draw(int greens, int blues, int reds) {
-//        super(greens, blues, reds);
-//    }
-
 }
-
-
