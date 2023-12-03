@@ -14,7 +14,7 @@ import java.util.stream.Stream;
  */
 public class App {
     public static void main(String[] args) {
-        Bag bag = Bag.of(14, 13, 12);
+        Bag bag = Bag.builder().blues(14).greens(13).reds(12).build();
         List<Game> games = new FileParser().parseFile();
         Stream<Game> gameStream = games.stream().filter(new GamePredicate(bag));
         Optional<Integer> result = gameStream.map(Game::getId).reduce(Integer::sum);

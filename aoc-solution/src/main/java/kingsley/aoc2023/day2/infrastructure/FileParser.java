@@ -12,6 +12,9 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Scanner;
 
+/**
+ * Scanner vs BufferedReader: https://www.geeksforgeeks.org/difference-between-scanner-and-bufferreader-class-in-java/
+ */
 @Data
 public class FileParser {
 
@@ -22,10 +25,8 @@ public class FileParser {
              Scanner scanner = new Scanner(inputStream)) {
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
-
                 // skip empty lines
                 if (line.trim().isEmpty()) continue;
-
                 Game game = parseGame(line);
                 games.add(game);
             }
@@ -59,7 +60,7 @@ public class FileParser {
 
     // Example: 3 blue, 4 red
     private Draw parseDraw(String drawString) {
-        Draw draw = new Draw();
+        Draw draw = Draw.builder().build();
         String[] cubeSplit = drawString.trim().split(",");
         for (String cubeString : cubeSplit) {
             String[] cubeNumberString = cubeString.trim().split(" ");
