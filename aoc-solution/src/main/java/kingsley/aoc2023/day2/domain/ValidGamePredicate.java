@@ -5,13 +5,13 @@ import lombok.Data;
 import java.util.function.Predicate;
 
 @Data
-public class GamePredicate implements Predicate<Game> {
+public class ValidGamePredicate implements Predicate<Game> {
     private final Bag bag;
 
     @Override
     public boolean test(Game game) {
         return game.getDraws()
                 .stream()
-                .noneMatch(new DrawPredicate(bag));
+                .noneMatch(new BadDrawPredicate(bag));
     }
 }

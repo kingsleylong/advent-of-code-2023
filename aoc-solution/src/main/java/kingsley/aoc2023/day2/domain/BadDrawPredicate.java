@@ -5,7 +5,7 @@ import lombok.Data;
 import java.util.function.Predicate;
 
 @Data
-public class DrawPredicate implements Predicate<Draw> {
+public class BadDrawPredicate implements Predicate<Draw> {
     private final Bag bag;
 
     @Override
