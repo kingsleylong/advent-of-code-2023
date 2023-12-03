@@ -46,7 +46,7 @@ def findCalibrationNumber(line):
     return nums
 
 # https://www.geeksforgeeks.org/read-a-file-line-by-line-in-python/
-file = open('inputs/day1.txt', 'r')
+file = open('day1/input.txt', 'r')
 
 lines = file.readlines()
 print("rows in file:", len(lines))
@@ -135,7 +135,7 @@ def replaceLetterDigitsWithNumber(line):
     return new_line
 
 
-file = open('inputs/day1.txt', 'r')
+file = open('day1/input.txt', 'r')
 
 lines = file.readlines()
 print("rows in file:", len(lines))
