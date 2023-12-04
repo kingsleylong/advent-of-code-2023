@@ -4,11 +4,11 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>kingsley</groupId>
-    <artifactId>aoc2023</artifactId>
+    <groupId>kingsley.aoc2023</groupId>
+    <artifactId>day2</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <name>Advent of code 2023</name>
+    <name>Advent of code 2023 - Day 2</name>
     <url>https://github.com/kingsleylong/advent-of-code-2023</url>
 
     <properties>

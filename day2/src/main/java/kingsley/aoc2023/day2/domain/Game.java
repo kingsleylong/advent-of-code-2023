@@ -23,6 +23,6 @@ public class Game {
                         .greens(Math.max(draw1.greens, draw2.greens))
                         .reds(Math.max(draw1.reds, draw2.reds))
                         .build());
-        return minimumBag.get();
+        return minimumBag.orElse(Draw.builder().build());
     }
 }
